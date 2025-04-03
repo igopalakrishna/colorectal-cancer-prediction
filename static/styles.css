@@ -1,0 +1,101 @@
+/* Reset & Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f8fa;
+  color: #2c3e50;
+  padding: 40px;
+}
+
+/* Centered container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Heading */
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a5276;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Input fields */
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 10px;
+  margin-top: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fdfefe;
+  transition: border 0.3s ease;
+}
+
+/* Focus styles */
+input[type="number"]:focus,
+select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Remove default dropdown arrow styling */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23999"><polygon points="0,0 12,0 6,7"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 36px; /* space for arrow */
+}
+
+/* Submit Button */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #2e86de;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2167a9;
+}
+
+/* Prediction Output */
+h3 {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #27ae60;
+}

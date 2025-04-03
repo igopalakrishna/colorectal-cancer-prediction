@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: kuberflow-pipeline-
+  annotations: {pipelines.kubeflow.org/kfp_sdk_version: 1.8.22, pipelines.kubeflow.org/pipeline_compilation_time: '2025-04-02T23:28:00.018013',
+    pipelines.kubeflow.org/pipeline_spec: '{"description": "Kubeflow Pipeline for
+      Colorectal Cancer Prediction", "name": "kuberflow pipeline"}'}
+  labels: {pipelines.kubeflow.org/kfp_sdk_version: 1.8.22}
+spec:
+  entrypoint: kuberflow-pipeline
+  templates:
+  - name: data-processing
+    container:
+      command: [python, src/data_processing.py]
+      image: igopalakrishna23/ccp-app:latest
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.22
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+  - name: kuberflow-pipeline
+    dag:
+      tasks:
+      - {name: data-processing, template: data-processing}
+      - name: model-training
+        template: model-training
+        dependencies: [data-processing]
+  - name: model-training
+    container:
+      command: [python, src/model_training.py]
+      image: igopalakrishna23/ccp-app:latest
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.22
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+  arguments:
+    parameters: []
+  serviceAccountName: pipeline-runner
