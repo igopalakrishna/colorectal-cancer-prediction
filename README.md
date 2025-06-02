@@ -26,7 +26,8 @@ An end-to-end MLOps pipeline to predict 5-year survival outcomes for colorectal 
 
 - Modular codebase with class-based components for reusability
 - Chi-Squared feature selection reducing dimensionality by 82% (5 out of 28)
-- Training Metrics: Accuracy = 59.9%, ROC-AUC ≈ 0.50 (synthetic data)
+- Training Metrics-I: Accuracy = 92.9%, ROC-AUC ≈ 0.89 (real data)
+- Training Metrics-II: Accuracy = 59.9%, ROC-AUC ≈ 0.50 (synthetic data)
 - MLflow Integration: Local + Remote (DAGsHub) tracking of metrics & artifacts
 - Kubeflow Pipelines for containerized orchestration of data processing + training
 - Interactive Flask UI for clinicians to input features and receive predictions
@@ -36,17 +37,6 @@ An end-to-end MLOps pipeline to predict 5-year survival outcomes for colorectal 
 1. **Patient Monitoring:** Track survival changes over time based on clinical updates
 2. **Treatment Planning:** Adjust interventions for high-risk patients
 3. **Resource Allocation:** Prioritize patients with lower survival predictions
-
-## Results
-
-| Metric        | Value     |
-|---------------|-----------|
-| Accuracy      | 59.95%    |
-| Precision     | 53.62%    |
-| Recall        | 59.95%    |
-| F1 Score      | 45.36%    |
-| ROC-AUC       | 0.4996    |
-| Top Features  | Healthcare_Costs, Tumor_Size_mm, Treatment_Type, Diabetes, Mortality_Rate_per_100K |
 
 ## Directory Structure
 
